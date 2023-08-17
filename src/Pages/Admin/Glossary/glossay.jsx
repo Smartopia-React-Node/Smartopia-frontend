@@ -6,23 +6,23 @@ import AddGlossary from '../../../Components/AddGlossary/addGlossary';
 import GlossaryAdminTable from '../../../Components/GlossaryAdminTable/glossaryAdminTable';
 import axios from 'axios';
 function glossay() {
-    const [glossaryArr, setGlossaryArr] = useState([])
+  const [glossaryArr, setGlossaryArr] = useState([])
 
-    useEffect(() => {
-        axios.get("https://ttool-test.onrender.com/api/glossary/all").then((response) => {
-            setGlossaryArr(response.data);
-          }).catch((err)=>console.log(err))
-    }, [])
+  useEffect(() => {
+    axios.get("https://ttool-test.onrender.com/api/glossary/all").then((response) => {
+      setGlossaryArr(response.data);
+    }).catch((err) => console.log(err))
+  }, [])
 
 
   return (
     <div className='glossary-admin-page'>
-        <Rightbar />
-        <div className='right-part'>
-          <TopBar />
-          <AddGlossary setGlossaryArr={setGlossaryArr}/>
-          <GlossaryAdminTable glossaryArr={glossaryArr}/>
-        </div>
+      <Rightbar />
+      <div className='right-part'>
+        <TopBar />
+        <AddGlossary setGlossaryArr={setGlossaryArr} />
+        <GlossaryAdminTable glossaryArr={glossaryArr} setGlossaryArr={setGlossaryArr} />
+      </div>
     </div>
   )
 }
